@@ -63,12 +63,19 @@ canvas {
 body{
 	position: relative;
 }
-p {
+p,h1 {
 	word-wrap: break-word;
 	display: block;
 	margin-right:15%;
 	margin-left:15%;
 	font-family: 'Raleway', sans-serif;
+}
+h1:hover {
+	transition: 0.2s;
+	color: #ffffff;
+}
+h1 {
+	transition: 0.2s;	
 }
 #rng {
 	height:5px;
