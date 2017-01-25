@@ -46,6 +46,10 @@ function press(){
     canvas.addEventListener('mouseout', function(ev) {
       mousedown = false;
     }, false );
+	canvas.addEventListener('touchstart', function(ev) {
+		mousedown=true;
+	}, false);
+	}
   }
 function rain(){
 	document.getElementById('backgroundMusic').pause();
