@@ -1,9 +1,13 @@
 
-var pressed = false;
+var touch;
+var pressed = true;
 var canvas;
 var context;
 var source;
+var touchdown=false;
 var size = 25;
+var specific = false;
+var img;
 function press(){
 	var rand = Math.floor(Math.random()*11);
 	pressed = true;
@@ -17,7 +21,8 @@ function press(){
     canvas.width = width;
     canvas.height = height;
 	rand = ""+rand+"";
-	var img = document.getElementById(rand);
+	if(!specific)
+		img = document.getElementById(rand);
 	img.style.display="inline-block";
 	var pat = context.createPattern(img,"no-repeat");
     context.fillStyle = pat; 
@@ -32,24 +37,43 @@ function press(){
 		context.closePath();
       }
     }
-	
+	function touchDraw(ev) {
+      if (touchdown&&pressed) {
+		var rect = canvas.getBoundingClientRect();
+		var x = touch.clientX - rect.left;
+		var y = touch.clientY - rect.top;
+		context.beginPath();
+        context.arc(x,y,size,0,2*Math.PI,false);
+		context.fill();
+		context.closePath();
+      }
+    }
     canvas.addEventListener('mouseover', function(ev) {
       document.body.classList.add('painted');
     }, false);
+	/* canvas.addEventListener('touchstart', function(ev) {
+		ev.preventDefault();
+      document.body.classList.add('painted');
+    }, false);
+    canvas.addEventListener('touchmove', draw, false);
+    canvas.addEventListener('touchenter', function(ev) {
+      mousedown = true; 
+    }, false );
+    canvas.addEventListener('touchout', function(ev) {
+      mousedown = false; 
+    }, false ); */
     canvas.addEventListener('mousemove', draw, false);
     canvas.addEventListener('mouseenter', function(ev) {
-      mousedown = true;
-    }, false );
-	canvas.addEventListener('mousedown', function(ev) {
       mousedown = true;
     }, false );
     canvas.addEventListener('mouseout', function(ev) {
       mousedown = false;
     }, false );
-    canvas.addEventListener('touchstart', function(ev) {
-	mousedown=true;
-    }, false);
+	canvas.addEventListener('touchstart',function(ev){touchdown=true;},false);
+	canvas.addEventListener('touchmove',function(ev){ev.preventDefault(); touch=ev.touches[0]; touchDraw();},false);
+	canvas.addEventListener('touchend',function(ev){touchDraw(); touchdown=false;},false);
   }
+  
 function rain(){
 	document.getElementById('backgroundMusic').pause();
 	document.getElementById('source').src="rain.mp3";
@@ -110,6 +134,12 @@ function large(){
 }
 function changeSize(){
 	size=document.getElementById("rng").valueAsNumber;
+}
+function selectSpecific(num){
+	specific = true;
+	img = document.getElementById(""+num+"");
+	press();
+	specific=false;
 }
 
 	

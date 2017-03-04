@@ -1,5 +1,6 @@
+
 body { 
-	background-color: #e3e7f7/*#bcc6d6/*#47afb8*/;
+	background-color: #e0e4f4/*#bcc6d6/*#47afb8*/;
 }
 .invisible {
 	width: 50px;
@@ -63,19 +64,21 @@ canvas {
 body{
 	position: relative;
 }
-p,h2 {
+h1 {
+	font-weight: normal;
+	font-size: 45px;
+	color: #ffffff;
+	margin-right:15%;
+	margin-left:15%;
+	font-family: 'Raleway', sans-serif;
+}
+p {
+	text-align: center;
 	word-wrap: break-word;
 	display: block;
 	margin-right:15%;
 	margin-left:15%;
 	font-family: 'Raleway', sans-serif;
-}
-h2:hover {
-	transition: 0.2s;
-	color: #ffffff;
-}
-h2 {
-	transition: 0.2s;	
 }
 #rng {
 	height:5px;

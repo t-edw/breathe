@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,42 +9,42 @@
 	<link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body onload="press()">
 	<audio id="backgroundMusic" loop>
 		<source id="source" type="audio/mpeg"></source>
 		Your browser does not suppose the audio element.
 	</audio>
 	<nav>
-		<button id="begin" onclick="press()">start</button>
+		<button id="begin" onclick="press()">reset</button>
 		<button id="rain" onclick="rain()">rain</button>
 		<button id="ocean" onclick="ocean()">ocean</button>
 		<button id="forest" onclick="forest()">forest</button>
 		<button id="classical" onclick="classical()">classical</button>
 		<button id="stop" onclick="stopMusic()">silence</button>
-		<button><form onmouseout="changeSize()">
+		<button><form onmouseout="changeSize()" ontouchend="changeSize()">
 			<input id="rng" type="range" min="5" max="50" />
 		</form></button>
 	</nav>
 	<br><br><br>
-	<h2>breathe.</h2>
-	<p>welcome to breathe, an interactive painting game designed to calm. to begin, press the start button above, then simply mouse over the square below to see the picture appear. to get another image and reset, you can press the start button again. there are also several sound options available. try them out by clicking the button with the sound you'd like to hear. if you would prefer not to hear anything at all, click silence and the sounds will stop. to change the size of the brush, use the slider above.</p>
+	<h1>&#10051;breathe. </h1>
+	<p>welcome to breathe, an interactive painting game designed to calm. to begin, then simply mouse over the square below to see the picture appear. if you are on a device with a touch screen, you can tap in the square below to see the image. to get another image and reset, you can press the clear button. there are also several sound options available. try them out by clicking the button with the sound you'd like to hear. if you would prefer not to hear anything at all, click silence and the sounds will stop. to change the size of the brush, use the slider above. if you would like to paint a specific picture, you can click on the icon that appears below the canvas.</p>
 	<canvas id="images" align="center">
 		Canvas is not supported
 	</canvas>
 	<h5 id="invisi">
 		<table>
 			<tr>
-				<td><img class="invisible" id="0" src="succulents.jpg"></td>
-				<td><img class="invisible" id="1" src="space.jpg"></td>
-				<td><img class="invisible" id="2" src="stars.jpg"></td>
-				<td><img class="invisible" id="3" src="pinterest.jpg"></td>
-				<td><img class="invisible" id="4" src="purple.jpg"></td>
-				<td><img class="invisible" id="5" src="puppies.jpg"></td>
-				<td><img class="invisible" id="6" src="puppies2.jpg"></td>
-				<td><img class="invisible" id="7" src="pastel.jpg"></td>
-				<td><img class="invisible" id="8" src="pink.jpg"></td>
-				<td><img class="invisible" id="9" src="beach.jpg"></td>
-				<td><img class="invisible" id="10" src="yolo.gif"></td>
+				<td><img class="invisible" id="0" src="succulents.jpg" onclick="selectSpecific(0)"></td>
+				<td><img class="invisible" id="1" src="space.jpg" onclick="selectSpecific(1)"></td>
+				<td><img class="invisible" id="2" src="stars.jpg" onclick="selectSpecific(2)"></td> 
+				<td><img class="invisible" id="3" src="pinterest.jpg" onclick="selectSpecific(3)"></td>
+				<td><img class="invisible" id="4" src="purple.jpg" onclick="selectSpecific(4)"></td>
+				<td><img class="invisible" id="5" src="puppies.jpg" onclick="selectSpecific(5)"></td>
+				<td><img class="invisible" id="6" src="puppies2.jpg" onclick="selectSpecific(6)"></td>
+				<td><img class="invisible" id="7" src="pastel.jpg" onclick="selectSpecific(7)"></td>
+				<td><img class="invisible" id="8" src="pink.jpg" onclick="selectSpecific(8)"></td>
+				<td><img class="invisible" id="9" src="beach.jpg" onclick="selectSpecific(9)"></td>
+				<td><img class="invisible" id="10" src="yolo.gif" onclick="selectSpecific(10)"></td>
 			</tr>
 		</table>
 	</h5>
